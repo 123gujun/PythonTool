@@ -1,9 +1,9 @@
 import requests
 import os
-url = "http://192.168.1.124:8088/verify/face/add"
+url = "http://192.168.1.188:88/verify/face/add"
 
-querystring = {"dbName":"djm3"}
-filesPath = "D:\\memo\\media\\ulsee\\"
+querystring = {"dbName":"test1234"}
+filesPath = "D:\\WorkSpace\\2k\\"
 for imagePath in os.listdir(filesPath):
     if imagePath.split(".")[1]=="jpg" or imagePath.split(".")[1]=="png":
         fullPath = filesPath + imagePath

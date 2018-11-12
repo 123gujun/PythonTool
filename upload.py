@@ -1,18 +1,22 @@
+# coding=utf-8
 import requests
 import os
 url = "http://192.168.10.240/api/personnels"
 
 querystring = {"group_id": 1}
 
-filesPath = "D:\\WorkSpace\\2k\\"
+# 乱码的问题
+filesPath = u"D:\\WorkSpace\\dikuulsee\\dikuulsee\\"
 for imagePath in os.listdir(filesPath):
     if imagePath.split(".")[1]=="jpg" or imagePath.split(".")[1]=="png":
         fullPath = filesPath + imagePath
         print(fullPath)
+
+
         files = {
-            'photo': open(fullPath, 'rb'),
+            'photo': open(fullPath,'rb'),
             'name':(None,imagePath),
-            'group_id':(None,str(1))
+            'group_id':(None,7)
         }
         headers = {
             'Cache-Control': "no-cache",

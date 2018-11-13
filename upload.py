@@ -1,7 +1,7 @@
 # coding=utf-8
 import requests
 import os
-url = "http://192.168.10.240/api/personnels"
+url = u"http://192.168.10.240/api/personnels"
 
 querystring = {"group_id": 1}
 
@@ -16,7 +16,7 @@ for imagePath in os.listdir(filesPath):
         files = {
             'photo': open(fullPath,'rb'),
             'name':(None,imagePath),
-            'group_id':(None,7)
+            'group_id':(None,1)
         }
         headers = {
             'Cache-Control': "no-cache",

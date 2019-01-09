@@ -1,4 +1,4 @@
-# coding=utf-8
+
 import requests
 import os
 url = u"http://192.168.10.240/api/personnels"

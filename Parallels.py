@@ -36,7 +36,7 @@ def Parallel():
         filestr = GetFileStr(filesPath + file)
         test ={"time":1516002690,'cid':'290200001263', 'image':filestr, 'faces':[filestr]}
         res = grequests.post(url,json=test,headers=headers)
-        #rs = grequests.map(res)
+        #rs = grequests.map(res)grequests
         tasks.append(res)
     grequests.map(tasks,size=300)
 

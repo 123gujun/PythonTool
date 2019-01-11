@@ -10,7 +10,7 @@ def  getFiles(filesPath):
     for imagePath in os.listdir(filesPath):
         if imagePath.split(".")[1]=="jpg" or imagePath.split(".")[1]=="png":
             print(len(fullPath))
-            if len(fullPath) < 200:
+            if len(fullPath) < 500:
                 fullPath.append(imagePath)
 
     return fullPath
@@ -25,7 +25,7 @@ pathcount = 1
 path = filesPath + "image" + str(pathcount)
 os.mkdir(path)
 for file in files:
-    if filecount < 200:
+    if filecount < 500:
         shutil.copy(filesPath + file,path)
         filecount += 1
     else:

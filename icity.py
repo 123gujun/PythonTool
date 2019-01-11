@@ -4,6 +4,7 @@ import json
 import grequests
 import datetime
 import requests
+
 url = "http://10.24.1.188:8888/people/api/add_peoples"
 filedir = u"D:\\WorkSpace\\dikuulsee\\dikuulsee\\"
 
@@ -54,9 +55,43 @@ def sendRecognition():
         res = grequests.post(url,data=body,files=files,headers=headers)
         task.append(res)
     grequests.map(task,size=2)
-'''
+
 start = datetime.datetime.now()
 sendRecognition()
+end = datetime.datetime.now()
+print ("*******************************************************")
+print ((end - start).seconds)
+'''
+
+def  compare():
+    '''人脸比对  1：N'''
+    url = "http://10.24.1.188:8888/recognition/api/seachface"
+    headers = {'Cookie': 'Token="bearer 9de08f26-0637-44e7-9895-0203b7906725"'}
+    comparepath = u"D:\\WorkSpace\\2k\\image2\\"
+    filearray = gu.getFiles(comparepath)
+    task =[]
+    for file in filearray:
+        res = grequests.post(url,headers=headers,files = [("image",(file,open(comparepath + file,'rb')))])
+        task.append(res)
+    grequests.map(task,size=2)
+
+
+def get_open_fds():
+
+    fds = []
+    for fd in range(3,resource.RLIMIT_NOFILE):
+            try:
+                    flags = fcntl.fcntl(fd, fcntl.F_GETFD)
+            except IOError:
+                    continue
+
+            fds.append(fd)
+
+    return fds
+
+
+start = datetime.datetime.now()
+compare()
 end = datetime.datetime.now()
 print ("*******************************************************")
 print ((end - start).seconds)

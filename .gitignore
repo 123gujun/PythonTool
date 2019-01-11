@@ -1,6 +1,6 @@
 *.txt
 .idea/
-.QtConsoleApplication/x64
+.QtConsoleApplication
 .QtConsoleApplication/Resources
 .QtConsoleApplication/GeneratedFiles
 *.jpg

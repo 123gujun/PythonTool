@@ -76,19 +76,6 @@ def  compare():
     grequests.map(task,size=2)
 
 
-def get_open_fds():
-
-    fds = []
-    for fd in range(3,resource.RLIMIT_NOFILE):
-            try:
-                    flags = fcntl.fcntl(fd, fcntl.F_GETFD)
-            except IOError:
-                    continue
-
-            fds.append(fd)
-
-    return fds
-
 
 start = datetime.datetime.now()
 compare()

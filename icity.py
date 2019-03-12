@@ -88,9 +88,11 @@ def  compare():
 
 
 '''
+>>>>>>> 9649f1f0f41e06be14b40e87a6b3231676b2c238
 start = datetime.datetime.now()
 compare()
 end = datetime.datetime.now()
 print ("*******************************************************")
 print ((end - start).seconds)
+<<<<<<< HEAD
 '''

@@ -7,7 +7,7 @@ filename="lua.json"
 
 
 def read_file(filepath):
-    # TODO  获取文件数据
+    # TODO  获取文件数据  提醒开发者这里暂时还没实现
     imageList = []
     for imagePath in os.listdir(filepath):
         if imagePath.split(".")[1] == "jpg" or imagePath.split(".")[1] == "png":

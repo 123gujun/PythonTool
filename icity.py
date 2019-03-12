@@ -37,31 +37,41 @@ print ((end - start).seconds)
 def sendRecognition():
     '''发送识别记录'''
     url = "http://10.24.1.188:8888/recognition/api/syncrecord"
-    headers = {'Cookie': 'Token="bearer 9de08f26-0637-44e7-9895-0203b7906725"'}
+    headers = {'Cookie': 'Token="bearer 0aa33bcb-a3e6-45be-862a-55148633e6bb"'}
     body = {
-        'people_id':684,
-        'create_at':1547102978000,
+        'people_id':683,
+        'create_at':1547518724000,
         'score':85,
         'sn':'JQ5RQNUUKE',
        # 'image':("zjj.png",open(u"D:\\WorkSpace\\dikuulsee\\dikuulsee\\zjj.png",'rb'))
     }
     files = [("image",("chenbo.png",open(filedir +  "chenbo.png","rb")))]
-    for i in range(100):
-        res = requests.request("POST",url,data=body,files=files,headers=headers)
 
-'''
+    #for i in range(100):
+       # res = requests.request("POST",url,data=body,files=files,headers=headers)
+
+
     task =[]
-    for i in range(1,100):
+    for i in range(1,2000):
         res = grequests.post(url,data=body,files=files,headers=headers)
         task.append(res)
-    grequests.map(task,size=2)
+    rets = grequests.map(task,size=16)
+    count = 0
+    for ret in rets:
+        if ret and ret.status_code == 200:
+            count = count + 1
+
+    print ("********count =  %d" % (count))
+
 
 start = datetime.datetime.now()
 sendRecognition()
 end = datetime.datetime.now()
 print ("*******************************************************")
 print ((end - start).seconds)
-'''
+
+
+
 
 def  compare():
     '''人脸比对  1：N'''
@@ -77,9 +87,10 @@ def  compare():
 
 
 
-
+'''
 start = datetime.datetime.now()
 compare()
 end = datetime.datetime.now()
 print ("*******************************************************")
 print ((end - start).seconds)
+'''
